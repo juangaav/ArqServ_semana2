@@ -24,6 +24,8 @@ module.exports.detail = (req, res, next) => {
       .then(post => {
         if(post) {
             res.json(post);
+        }else{
+            return next(createError(404, "Post not found."));
         }
       })
       .catch(next);
@@ -37,6 +39,8 @@ module.exports.update = (req, res, next) => {
     .then(post => {
         if(post) {
             res.json(post);
+        }else{
+            return next(createError(404, "Post not found."));
         }
       })
       .catch(next);
