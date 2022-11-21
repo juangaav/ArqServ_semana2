@@ -14,6 +14,14 @@ const userSchema = new Schema({
         type: String,
         required: 'name is required'
     },
+    admin: {
+        type: Boolean,
+        default: false
+    },
+    valid: {
+        type: Boolean,
+        default: false
+    },
     email: {
         type: String,
         trim: true,

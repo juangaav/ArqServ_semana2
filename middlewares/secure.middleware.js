@@ -2,6 +2,14 @@ const createError = require("http-errors");
 const jwt = require('jsonwebtoken');
 const User = require('../models/user.model');
 
+module.exports.admin = (req, res, next) => {
+    if(req.user.admin){
+        next();
+    } else {
+        return next(createError(403, "Forbidden: Invalid privileges"));
+    }
+}
+
 module.exports.auth = (req, res, next) => {
     const authorization = req.headers.authorization;
 
