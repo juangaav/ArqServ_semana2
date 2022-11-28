@@ -16,7 +16,7 @@ module.exports.create = (req, res, next) => {
 module.exports.validate = (req, res, next) => {
   User.findByIdAndUpdate(
     req.params.id, 
-    {valid: true}, 
+    {valid: true, active:true}, 
       { 
         new: true,
         runValidators: true
